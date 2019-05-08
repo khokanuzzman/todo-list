@@ -5,7 +5,7 @@
       <p class="lead">Learnig Angular</p>
       <hr class="my-4">
       <div class="input-group input-group-lg mb-3">
-        <input type="text" class="form-control" placeholder="Add Todo" #newTodo aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <input type="text" class="form-control" placeholder="Add Todo" #newTodo aria-label="Large" aria-describedby="inputGroup-sizing-sm" required>
         <div class="input-group-append">
           <button class="btn btn-success" (click)="addTodo(newTodo.value); newTodo.value=''"  id="inputGroup-sizing-lg">Add Todo</button>
         </div>
@@ -13,7 +13,7 @@
     </div>
 
     <table class="table table-dark mb-5" >
-      <tr>
+      <tr class="text-uppercase">
         <th>lebel</th>
         <th class="text-center">Priority</th>
         <th class="text-center">Done</th>
