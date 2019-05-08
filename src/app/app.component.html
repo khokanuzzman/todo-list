@@ -1,23 +1,31 @@
 
-
 <div class="container">
-<h1>{{title}}</h1>
-<input type="text" class="todo-input" #newTodo>
-<button (click)="addTodo(newTodo.value); newTodo.value=''">Add Todo</button>
-  <table class="to-table">
-    <tr>
-      <th>lebel</th>
-      <th>Priority</th>
-      <th>Done</th>
-      <th>Action</th>
-    </tr>
-    <tr *ngFor="let todo of todos;" >
-      <td>{{todo.lebel}}</td>
-      <td>{{todo.priority}}</td>
-      <td>{{todo.done? '&#10003;' : '&#10005;'}}</td>
-      <td><button (click)="deleteTodo(todo)">delete</button></td>
-    </tr>
-  </table>
+    <div class="jumbotron">
+      <h1 class="display-4 text-uppercase">{{title}}</h1>
+      <p class="lead">Learnig Angular</p>
+      <hr class="my-4">
+      <div class="input-group input-group-lg mb-3">
+        <input type="text" class="form-control" placeholder="Add Todo" #newTodo aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <div class="input-group-append">
+          <button class="btn btn-success" (click)="addTodo(newTodo.value); newTodo.value=''"  id="inputGroup-sizing-lg">Add Todo</button>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-dark mb-5" >
+      <tr>
+        <th>lebel</th>
+        <th class="text-center">Priority</th>
+        <th class="text-center">Done</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let todo of todos;">
+        <td>{{todo.lebel}}</td>
+        <td class="text-center">{{todo.priority}}</td>
+        <td class="text-center">{{todo.done? '&#10003;' : '&#10005;'}}</td>
+        <td><button class="text-center btn btn-danger" (click)="deleteTodo(todo)">delete</button></td>
+      </tr>
+    </table>
 
 </div>
 
