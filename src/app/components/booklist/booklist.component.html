@@ -1,0 +1,46 @@
+<hr>
+<div class="page-header mt-5 mb-5">
+  <h1>Learning Angular Directives<small>*NgIF,*NgFor,*NgSwitch</small></h1>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Rating</th>
+      <th>Author</th>
+      <th>Price</th>
+      <th>Give Ratings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books" class="mt-2">
+      <td>{{book.id}}</td>
+      <td>{{book.title}}</td>
+      <td  [class.minRated]="book.rating<2" [class.topRated]="book.rating>=4">{{book.rating | number}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.price}}</td>
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" (click)="rate(book,1)">1</button>
+        <button type="button" class="btn btn-secondary"  (click)="rate(book,2)">2</button>
+        <button type="button" class="btn btn-secondary"  (click)="rate(book,3)">3</button>
+        <button type="button" class="btn btn-secondary"  (click)="rate(book,4)">4</button>
+        <button type="button" class="btn btn-secondary"  (click)="rate(book,5)">5</button>
+        <button type="button" class="btn btn-primary">Ratings <span class="badge badge-light">{{book.numberRating}}</span></button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+
+<div class="jumbotron">
+  <h1 class="display-4">Learning Nested component</h1>
+  <p class="lead">Passing component Data One component ot another by @Input</p>
+  <hr class="my-4">
+      <div *ngFor="let b of books;">
+        <app-book [parentData]="b"></app-book>
+      </div>
+</div>

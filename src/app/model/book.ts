@@ -5,5 +5,6 @@ export interface Book
     author:string;
     rating:number;
     price:number;
+    numberRating:number;
 
 }

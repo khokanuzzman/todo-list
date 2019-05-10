@@ -5,9 +5,10 @@
       <p class="lead">Learnig Angular</p>
       <hr class="my-4">
       <div class="input-group input-group-lg mb-3">
-        <input type="text" class="form-control" placeholder="Add Todo" #newTodo aria-label="Large" aria-describedby="inputGroup-sizing-sm" required>
+        <input type="text" class="form-control" placeholder="Add Todo" #newTodoTitle aria-label="Large" aria-describedby="inputGroup-sizing-sm" required>
+        <input type="number" class="form-control" placeholder="Set Priority" #newTodoPriority aria-label="Large" aria-describedby="inputGroup-sizing-sm" required>
         <div class="input-group-append">
-          <button class="btn btn-success" (click)="addTodo(newTodo.value); newTodo.value=''"  id="inputGroup-sizing-lg">Add Todo</button>
+          <button class="btn btn-success" (click)="addTodo(newTodoTitle.value,newTodoPriority.value); newTodo.value=''; newTodoPriority.value=''"   id="inputGroup-sizing-lg">Add Todo</button>
         </div>
       </div>
     </div>
@@ -22,10 +23,12 @@
       <tr *ngFor="let todo of todos;">
         <td>{{todo.lebel}}</td>
         <td class="text-center">{{todo.priority}}</td>
-        <td class="text-center">{{todo.done? '&#10003;' : '&#10005;'}}</td>
+        <td (click)="todo.done=true" class="text-center">{{todo.done? '&#10003;' : '&#10005;'}}</td>
         <td><button class="text-center btn btn-danger" (click)="deleteTodo(todo)">delete</button></td>
       </tr>
     </table>
+    <!--book list UI -->
+    <app-booklist></app-booklist>
 
 </div>
 

@@ -35,13 +35,13 @@ export class AppComponent {
     }
   ];
 
-  addTodo(newtodoValue)
+  addTodo(newtodoValue,newPriority:number)
   {
     var newTodo=
     {
       lebel:newtodoValue,
       done: false,
-      priority:1
+      priority:newPriority
     };
     this.todos.push(newTodo);
   }
@@ -50,6 +50,16 @@ export class AppComponent {
   {
     this.todos= this.todos.filter(t=>t.lebel!==todo.lebel);
   }
+
+  DoneTodo(todo)
+  {
+    if(this.todos.filter(t=>t.lebel==todo.lebel)){
+      this.todos.push(todo.done=true);
+    }
+    
+    
+  }
+
 }
 
 
